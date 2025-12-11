@@ -82,11 +82,8 @@ export class AdsController {
   async uploadAdImages(
     @Param('id') id: string,
     @Body() dto,
-    @UploadedFiles() files: Record<string, Express.Multer.File[]>
   ) {
-    const savedFiles = await Promise.all(
-      files.images.map(file => this.fileService.saveFile(file, `ads/${id}`))
-    );
+    savedFiles = dto.file_fileds    
     return { files: savedFiles };
   }
 }
@@ -96,7 +93,7 @@ export class AdsController {
 
 ```ts
 const oldPaths = ['ads/1/old1.jpg', 'ads/1/old2.jpg'];
-const newFiles = files.images; // from @UploadedFiles()
+const newFiles = dto.images; // from @UploadedFiles()
 const newPaths = await this.fileService.replaceFiles(oldPaths, newFiles, `ads/${id}`);
 ```
 
