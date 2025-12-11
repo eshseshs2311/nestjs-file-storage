@@ -10,7 +10,12 @@
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["nestjs", "file", "upload", "storage"],
+  "keywords": [
+    "nestjs",
+    "file",
+    "upload",
+    "storage"
+  ],
   "author": "Hassan Elsaied",
   "license": "MIT",
   "dependencies": {
@@ -24,5 +29,13 @@
     "@types/node": "^25.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eshseshs2311/nestjs-file-storage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eshseshs2311/nestjs-file-storage/issues"
+  },
+  "homepage": "https://github.com/eshseshs2311/nestjs-file-storage#readme"
 }
