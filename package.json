@@ -1,0 +1,28 @@
+{
+  "name": "@hassan23el/nestjs-file-storage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["nestjs", "file", "upload", "storage"],
+  "author": "Hassan Elsaied",
+  "license": "MIT",
+  "dependencies": {
+    "@nestjs/common": "^11.1.9",
+    "@nestjs/platform-express": "^11.1.9",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^25.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
