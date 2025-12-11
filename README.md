@@ -148,7 +148,6 @@ import {
   FileService,
   FileStorageInterceptor,
   AllowedFiles,
-  IMAGE_REGEX,
   AllowedFilesOptions,
   UploadModule
 } from '@hassan23el/nestjs-file-storage';
