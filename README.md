@@ -4,10 +4,11 @@ nestjs-file-storage/
 ├─ .gitignore
 ├─ README.md
 └─ src/
-   ├─ index.ts
-   ├─ service/file.service.ts
-   ├─ interceptors/file-storage.interceptor.ts
-   └─ decorators/allowed-files.decorator.ts
+├─ index.ts
+├─ service/file.service.ts
+├─ interceptors/file-storage.interceptor.ts
+├─ decorators/allowed-files.decorator.ts
+└─ upload.module.ts
 
 ---
 
@@ -17,14 +18,15 @@ NestJS File Storage Package – A complete solution for handling file uploads, r
 
 ## Features
 
-- Save single or multiple files
-- Replace single or multiple files
-- Move single or multiple files
-- Bulk delete files
-- Delete entire folders
-- File validation (size and type)
-- NestJS decorator & interceptor integration
-- Ready for scoped npm package
+* Save single or multiple files
+* Replace single or multiple files
+* Move single or multiple files
+* Bulk delete files
+* Delete entire folders
+* File validation (size and type)
+* NestJS decorator & interceptor integration
+* Global UploadModule for easy access
+* Ready for scoped npm package
 
 ## Installation
 
@@ -34,7 +36,21 @@ npm install @hassan23el/nestjs-file-storage
 
 ## Setup
 
-Import the services in your NestJS module:
+### Import Global Module
+
+```ts
+import { Module } from '@nestjs/common';
+import { UploadModule } from '@hassan23el/nestjs-file-storage';
+
+@Module({
+  imports: [UploadModule], // Import once in root module
+})
+export class AppModule {}
+```
+
+* With `@Global()` applied, `FileService` is available everywhere without importing `UploadModule` in other modules.
+
+### Import Service Directly (Optional)
 
 ```ts
 import { Module } from '@nestjs/common';
@@ -44,8 +60,10 @@ import { FileService } from '@hassan23el/nestjs-file-storage';
   providers: [FileService],
   exports: [FileService],
 })
-export class UploadModule {}
+export class SomeModule {}
 ```
+
+---
 
 ## Usage
 
@@ -99,9 +117,10 @@ await this.fileService.deleteFolder('ads/1');
 ## Validation
 
 Use `@AllowedFiles` decorator for:
-- Maximum number of files
-- Maximum file size (MB)
-- Allowed file types (default: images + PDF)
+
+* Maximum number of files
+* Maximum file size (MB)
+* Allowed file types (default: images + PDF)
 
 ```ts
 @AllowedFiles({ maxFiles: 5, maxSizeMB: 10, regex: /\/(jpg|jpeg|png|gif|pdf)$/ })
@@ -133,15 +152,17 @@ import {
   FileStorageInterceptor,
   AllowedFiles,
   IMAGE_REGEX,
-  AllowedFilesOptions
+  AllowedFilesOptions,
+  UploadModule
 } from '@hassan23el/nestjs-file-storage';
 ```
 
-- `FileService` – core file operations
-- `FileStorageInterceptor` – NestJS interceptor
-- `AllowedFiles` – decorator for validation
-- `IMAGE_REGEX` – default regex for images
-- `AllowedFilesOptions` – interface for options
+* `FileService` – core file operations
+* `FileStorageInterceptor` – NestJS interceptor
+* `AllowedFiles` – decorator for validation
+* `IMAGE_REGEX` – default regex for images
+* `AllowedFilesOptions` – interface for options
+* `UploadModule` – global module providing FileService
 
 ## License
 
