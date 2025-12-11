@@ -156,7 +156,6 @@ import {
 * `FileService` – core file operations
 * `FileStorageInterceptor` – NestJS interceptor
 * `AllowedFiles` – decorator for validation
-* `IMAGE_REGEX` – default regex for images
 * `AllowedFilesOptions` – interface for options
 * `UploadModule` – global module providing FileService
 
