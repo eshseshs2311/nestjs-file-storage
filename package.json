@@ -1,6 +1,6 @@
 {
   "name": "@hassan23el/nestjs-file-storage",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "",
   "main": "index.js",
   "publishConfig": {
