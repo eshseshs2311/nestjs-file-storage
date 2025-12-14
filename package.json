@@ -1,8 +1,10 @@
 {
   "name": "@hassan23el/nestjs-file-storage",
-  "version": "1.2.7",
-  "description": "",
-  "main": "index.js",
+  "version": "1.2.8",
+  "description": "NestJS file storage and upload module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
   "publishConfig": {
     "access": "public"
   },
